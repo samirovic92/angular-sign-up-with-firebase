@@ -1,1 +1,4 @@
-<p>home works!</p>
+@if(user$ | async; as user){
+  <h1>welcome to our app {{user.email}}</h1>
+}
+

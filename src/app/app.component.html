@@ -1,8 +1,17 @@
 <mat-toolbar color="primary">
   Sing Up Flow With Firebase
-  <button mat-button routerLink="/login">
-    <mat-icon>login</mat-icon>
-  </button>
+  @if (authentificationService.currentUser$ | async) {
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+  } @else {
+    <button mat-button routerLink="/login">
+      <mat-icon>login</mat-icon>
+      Login
+    </button>
+  }
+
 </mat-toolbar>
 
 <div class="content">
