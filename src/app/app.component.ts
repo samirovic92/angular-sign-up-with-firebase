@@ -5,13 +5,14 @@ import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
 import {AuthentificationService} from './services/authentification.service';
 import {AsyncPipe} from '@angular/common';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
-  imports: [RouterOutlet, MatToolbar, MatIcon, MatButton, MatIcon, RouterLink, AsyncPipe]
+  imports: [RouterOutlet, MatToolbar, MatIcon, MatButton, MatIcon, RouterLink, AsyncPipe, MatMenu, MatMenuItem, MatMenuTrigger]
 })
 export class AppComponent {
   authentificationService = inject(AuthentificationService);
