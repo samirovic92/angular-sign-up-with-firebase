@@ -19,8 +19,5 @@ export class AuthentificationService {
 
   logout = () => from(this.auth.signOut());
 
-  signup = (name:string, email: string, password: string) => from(createUserWithEmailAndPassword(this.auth, email, password))
-    .pipe(
-      switchMap(({user}) => updateProfile(user, {displayName: name}))
-    );
+  signup = (email: string, password: string) => from(createUserWithEmailAndPassword(this.auth, email, password));
 }

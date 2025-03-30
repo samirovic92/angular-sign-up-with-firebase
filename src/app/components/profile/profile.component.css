@@ -1,0 +1,15 @@
+
+.profile-image {
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.form-container {
+  max-width: 400px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}

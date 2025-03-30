@@ -6,6 +6,8 @@ import {MatError} from '@angular/material/form-field';
 import {AuthentificationService} from '../../services/authentification.service';
 import {HotToastService} from '@ngneat/hot-toast';
 import {Router} from '@angular/router';
+import {UsersService} from '../../services/users.service';
+import {switchMap} from 'rxjs';
 
 @Component({
   selector: 'app-sing-up',
@@ -25,6 +27,7 @@ import {Router} from '@angular/router';
 })
 export class SingUpComponent {
   authService: AuthentificationService = inject(AuthentificationService);
+  usersService: UsersService = inject(UsersService);
   toast = inject(HotToastService);
   router: Router = inject(Router);
 
@@ -45,8 +48,11 @@ export class SingUpComponent {
       return;
     }
     const {name, email, password} = this.singUpForm.value;
-    this.authService.signup(name, email, password)
-      .pipe(this.toast.observe(this.toastOptions))
+    this.authService.signup(email, password)
+      .pipe(
+        switchMap(({ user: { uid } }) =>this.usersService.addUser({ uid, email, displayName: name })),
+        this.toast.observe(this.toastOptions)
+      )
       .subscribe(() => this.router.navigate(['/home']));
   }
 

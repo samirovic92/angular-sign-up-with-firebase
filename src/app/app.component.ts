@@ -6,6 +6,7 @@ import {MatButton} from '@angular/material/button';
 import {AuthentificationService} from './services/authentification.service';
 import {AsyncPipe} from '@angular/common';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
+import {UsersService} from './services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,13 @@ import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
 })
 export class AppComponent {
   authentificationService = inject(AuthentificationService);
+  usersService = inject(UsersService);
+  user$ = this.usersService.currentUserProfile$;
   private router = inject(Router);
 
-  logout = () => this.authentificationService.logout().subscribe(
-    () => this.router.navigate([''])
-  )
+
+  logout = () => this.authentificationService.logout().subscribe(() => this.router.navigate(['']))
+
+  profile = () => this.router.navigate(['profile']);
+
 }

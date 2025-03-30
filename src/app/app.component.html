@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   Sing Up Flow With Firebase
-  @if (authentificationService.currentUser$ | async; as user) {
+  @if (user$ | async; as user) {
     <button mat-button [matMenuTriggerFor]="userMenu">
       <mat-icon>account_circle</mat-icon>
       {{ user.displayName }}
@@ -19,5 +19,6 @@
 </div>
 
 <mat-menu #userMenu="matMenu">
+  <button mat-menu-item (click)="profile()">Profile</button>
   <button mat-menu-item (click)="logout()">Logout</button>
 </mat-menu>
