@@ -2,11 +2,11 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    projectId: "angular-sing-up-16e2b",
-    appId: "1:336240052039:web:4a3a7f42bfbd927d8f6e62",
-    storageBucket: "angular-sing-up-16e2b.firebasestorage.app",
-    apiKey: "AIzaSyAJLpYHsnq_Z3yUGP3TCnUnfz7COCF-s3g",
-    authDomain: "angular-sing-up-16e2b.firebaseapp.com",
-    messagingSenderId: "336240052039"
+    projectId: "${FIREBASE_PROJECT_ID}",
+    appId: "${FIREBASE_APP_ID}",
+    storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+    apiKey: "${FIREBASE_API_KEY}",
+    authDomain: "${FIREBASE_AUTH_DOMAIN}",
+    messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}"
   }
 }
